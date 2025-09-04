@@ -9,7 +9,8 @@ import Footer from './components/Footer/Footer';
 import './App.css';
 
 const App = () => {
-  const basename = process.env.NODE_ENV === 'production' ? '/perf-basecamp' : '';
+  // GitHub Pages: REACT_APP_BASENAME, CloudFront: ''
+  const basename = process.env.REACT_APP_BASENAME || '';
 
   return (
     <Router basename={basename}>

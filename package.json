@@ -9,10 +9,12 @@
   "scripts": {
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",
+    "build:cloudfront": "REACT_APP_BASENAME= npm run build:prod",
+    "build:github": "REACT_APP_BASENAME=/perf-basecamp npm run build:prod",
     "watch": "webpack --watch",
     "serve": "webpack serve --mode=development",
     "prettier": "prettier --write .",
-    "deploy": "npm run build:prod && npx gh-pages -d dist"
+    "deploy": "npm run build:github && npx gh-pages -d dist"
   },
   "keywords": [],
   "author": "woowacourse",
