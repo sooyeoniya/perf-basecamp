@@ -22,7 +22,21 @@ module.exports = (_, argv) => {
     devtool: isProduction ? 'source-map' : 'eval-source-map',
     plugins: [
       new HtmlWebpackPlugin({
-        template: './index.html'
+        template: './index.html',
+        minify: isProduction
+          ? {
+              removeComments: true,
+              collapseWhitespace: true,
+              removeRedundantAttributes: true,
+              useShortDoctype: true,
+              removeEmptyAttributes: true,
+              removeStyleLinkTypeAttributes: true,
+              keepClosingSlash: true,
+              minifyJS: true,
+              minifyCSS: true,
+              minifyURLs: true
+            }
+          : false
       }),
       new CopyWebpackPlugin({
         patterns: [{ from: './public', to: './public' }]
