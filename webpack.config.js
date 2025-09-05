@@ -66,7 +66,7 @@ module.exports = (_, argv) => {
       ]
     },
     optimization: {
-      minimize: false
+      minimize: isProduction
     }
   };
 };
