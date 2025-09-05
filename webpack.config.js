@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = (_, argv) => {
   const isProduction = argv.mode === 'production';
@@ -66,7 +67,8 @@ module.exports = (_, argv) => {
       ]
     },
     optimization: {
-      minimize: isProduction
+      minimize: isProduction,
+      minimizer: [new CssMinimizerPlugin()]
     }
   };
 };
