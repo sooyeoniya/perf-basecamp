@@ -14,7 +14,8 @@ module.exports = (_, argv) => {
     output: {
       filename: isProduction ? 'main.[contenthash].js' : 'bundle.js',
       path: path.join(__dirname, '/dist'),
-      clean: true
+      clean: true,
+      chunkFilename: isProduction ? '[id].[contenthash].js' : '[id].js'
     },
     devServer: {
       hot: true,
