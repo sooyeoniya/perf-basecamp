@@ -83,7 +83,9 @@ module.exports = (_, argv) => {
               }
             }
           }
-        : false
+        : false,
+      usedExports: isProduction,
+      sideEffects: false
     }
   };
 };
