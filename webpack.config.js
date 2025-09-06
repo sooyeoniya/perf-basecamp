@@ -15,7 +15,7 @@ module.exports = (_, argv) => {
       filename: isProduction ? 'main.[contenthash].js' : 'bundle.js',
       path: path.join(__dirname, '/dist'),
       clean: true,
-      chunkFilename: isProduction ? '[id].[contenthash].js' : '[id].js'
+      chunkFilename: isProduction ? '[name].[contenthash].js' : '[name].js'
     },
     devServer: {
       hot: true,
@@ -28,7 +28,6 @@ module.exports = (_, argv) => {
         template: './index.html',
         minify: isProduction
           ? {
-              removeComments: true,
               collapseWhitespace: true,
               removeRedundantAttributes: true,
               useShortDoctype: true,
@@ -81,6 +80,12 @@ module.exports = (_, argv) => {
                 name: 'vendor',
                 chunks: 'all',
                 filename: 'vendor.[contenthash].js'
+              },
+              search: {
+                test: /[\\/]src[\\/]pages[\\/]Search[\\/]/,
+                name: 'search',
+                chunks: 'all',
+                filename: 'search.[contenthash].js'
               }
             }
           }

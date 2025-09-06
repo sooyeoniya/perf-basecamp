@@ -7,7 +7,7 @@ import Footer from './components/Footer/Footer';
 
 import './App.css';
 
-const Search = lazy(() => import('./pages/Search/Search'));
+const Search = lazy(() => import(/* webpackChunkName: "search" */ './pages/Search/Search'));
 
 const App = () => {
   // GitHub Pages: REACT_APP_BASENAME, CloudFront: ''
