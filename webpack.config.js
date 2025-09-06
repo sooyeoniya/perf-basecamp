@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = (_, argv) => {
   const isProduction = argv.mode === 'production';
@@ -42,7 +43,8 @@ module.exports = (_, argv) => {
       new CopyWebpackPlugin({
         patterns: [{ from: './public', to: './public' }]
       }),
-      new Dotenv()
+      new Dotenv(),
+      new BundleAnalyzerPlugin()
     ],
     module: {
       rules: [
