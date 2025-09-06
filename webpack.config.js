@@ -70,7 +70,20 @@ module.exports = (_, argv) => {
     },
     optimization: {
       minimize: isProduction,
-      minimizer: [new CssMinimizerPlugin()]
+      minimizer: [new CssMinimizerPlugin()],
+      splitChunks: isProduction
+        ? {
+            chunks: 'all',
+            cacheGroups: {
+              vendor: {
+                test: /[\\/]node_modules[\\/]/,
+                name: 'vendor',
+                chunks: 'all',
+                filename: 'vendor.[contenthash].js'
+              }
+            }
+          }
+        : false
     }
   };
 };
