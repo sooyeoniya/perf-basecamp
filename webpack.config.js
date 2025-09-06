@@ -61,9 +61,9 @@ module.exports = (_, argv) => {
         },
         {
           test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif|webp|avif)$/i,
-          loader: 'file-loader',
-          options: {
-            name: 'static/[name].[ext]'
+          type: 'asset/resource',
+          generator: {
+            filename: isProduction ? 'static/[name].[contenthash][ext]' : 'static/[name][ext]'
           }
         }
       ]
