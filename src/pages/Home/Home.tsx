@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { memo, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 
@@ -17,7 +17,7 @@ import styles from './Home.module.css';
 
 const cx = classNames.bind(styles);
 
-const Home = () => {
+const Home = memo(() => {
   const wrapperRef = useRef<HTMLElement>(null);
 
   return (
@@ -53,6 +53,8 @@ const Home = () => {
       <CustomCursor text="memegle" />
     </>
   );
-};
+});
+
+Home.displayName = 'Home';
 
 export default Home;
