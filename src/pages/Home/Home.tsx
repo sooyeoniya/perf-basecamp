@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 import findGif from '../../assets/images/find.gif';
 import freeGif from '../../assets/images/free.gif';
-import heroImageAvif from '../../assets/images/hero.avif';
 import heroImageWebP from '../../assets/images/hero.webp';
 import trendingGif from '../../assets/images/trending.gif';
 
@@ -22,17 +21,13 @@ const Home = memo(() => {
   return (
     <>
       <section className={styles.heroSection}>
-        <picture>
-          <source type="image/avif" srcSet={heroImageAvif} />
-          <source type="image/webp" srcSet={heroImageWebP} />
-          <img
-            className={styles.heroImage}
-            src={heroImageWebP}
-            alt="hero image"
-            loading="eager"
-            fetchPriority="high"
-          />
-        </picture>
+        <img
+          className={styles.heroImage}
+          src={heroImageWebP}
+          alt="hero image"
+          loading="eager"
+          fetchPriority="high"
+        />
         <div className={styles.projectTitle}>
           <h1 className={styles.title}>Memegle</h1>
           <h3 className={styles.subtitle}>gif search engine for you</h3>
