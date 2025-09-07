@@ -1,17 +1,16 @@
+import classNames from 'classnames/bind';
 import { memo, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import classNames from 'classnames/bind';
 
-import heroImageAvif from '../../assets/images/hero.avif';
-import heroImageWebP from '../../assets/images/hero.webp';
-import heroImage from '../../assets/images/hero.png';
-import trendingGif from '../../assets/images/trending.gif';
 import findGif from '../../assets/images/find.gif';
 import freeGif from '../../assets/images/free.gif';
+import heroImageAvif from '../../assets/images/hero.avif';
+import heroImageWebP from '../../assets/images/hero.webp';
+import trendingGif from '../../assets/images/trending.gif';
 
-import FeatureItem from './components/FeatureItem/FeatureItem';
-import CustomCursor from './components/CustomCursor/CustomCursor';
 import AnimatedPath from './components/AnimatedPath/AnimatedPath';
+import CustomCursor from './components/CustomCursor/CustomCursor';
+import FeatureItem from './components/FeatureItem/FeatureItem';
 
 import styles from './Home.module.css';
 
@@ -26,7 +25,13 @@ const Home = memo(() => {
         <picture>
           <source type="image/avif" srcSet={heroImageAvif} />
           <source type="image/webp" srcSet={heroImageWebP} />
-          <img className={styles.heroImage} src={heroImage} alt="hero image" />
+          <img
+            className={styles.heroImage}
+            src={heroImageWebP}
+            alt="hero image"
+            loading="eager"
+            fetchPriority="high"
+          />
         </picture>
         <div className={styles.projectTitle}>
           <h1 className={styles.title}>Memegle</h1>
