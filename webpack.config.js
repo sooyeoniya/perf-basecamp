@@ -26,6 +26,8 @@ module.exports = (_, argv) => {
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
+        inject: 'head',
+        scriptLoading: 'defer',
         minify: isProduction
           ? {
               collapseWhitespace: true,
@@ -63,7 +65,7 @@ module.exports = (_, argv) => {
           test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif|webp|avif)$/i,
           type: 'asset/resource',
           generator: {
-            filename: isProduction ? 'static/[name].[contenthash][ext]' : 'static/[name][ext]'
+            filename: 'static/[name][ext]'
           }
         }
       ]
