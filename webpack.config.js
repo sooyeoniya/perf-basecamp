@@ -93,7 +93,7 @@ module.exports = (_, argv) => {
           }
         : false,
       usedExports: isProduction,
-      sideEffects: false
+      sideEffects: ['*.css']
     }
   };
 };
